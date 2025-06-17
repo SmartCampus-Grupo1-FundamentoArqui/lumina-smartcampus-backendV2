@@ -1,42 +1,34 @@
 package upc.edu.pe.smartcampusbackend.teacher.application.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import upc.edu.pe.smartcampusbackend.course.domain.entities.Course;
-import upc.edu.pe.smartcampusbackend.course.domain.repositories.CourseRepository;
+import upc.edu.pe.smartcampusbackend.teacher.domain.dto.TeacherRequest;
 import upc.edu.pe.smartcampusbackend.teacher.domain.entities.Teacher;
 import upc.edu.pe.smartcampusbackend.teacher.domain.repositories.TeacherRepository;
-import java.util.Optional;
 
+import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class TeacherService {
 
-    @Autowired
-    private TeacherRepository teacherRepository;
+    private final TeacherRepository repository;
 
-    @Autowired
-    private CourseRepository courseRepository;
-
-    private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-
-    // Crear un nuevo profesor
-    public Teacher createTeacher(Teacher teacher) {
-        teacher.setPassword(encoder.encode(teacher.getPassword()));  // Cifra la contraseña
-        return teacherRepository.save(teacher);
+    public Teacher createTeacher(TeacherRequest request) {
+        Teacher teacher = Teacher.builder()
+                .fullName(request.getFullName())
+                .email(request.getEmail())
+                .phone(request.getPhone())
+                .build();
+        return repository.save(teacher);
     }
 
-    // Asignar un profesor a un curso
-    public boolean assignTeacherToCourse(Long teacherId, Long courseId) {
-        Optional<Teacher> teacher = teacherRepository.findById(teacherId);
-        Optional<Course> course = courseRepository.findById(courseId);
+    public List<Teacher> getAllTeachers() {
+        return repository.findAll();
+    }
 
-        if (teacher.isPresent() && course.isPresent()) {
-            // Aquí puedes agregar la lógica de asignación de profesores a cursos
-            // Por ejemplo, agregar el profesor al curso. Esto depende de cómo estructures la relación.
-            return true;
-        }
-        return false;
+    public Teacher getTeacherById(Long id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Teacher not found"));
     }
 }
