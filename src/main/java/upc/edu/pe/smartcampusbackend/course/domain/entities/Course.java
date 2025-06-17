@@ -1,43 +1,26 @@
 package upc.edu.pe.smartcampusbackend.course.domain.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
+@Table(name = "courses")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Course {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;  // Ejemplo: "Mathematics", "History"
-    private String schedule;  // Ejemplo: "Monday 10:00 AM - 11:00 AM"
+    private String name;
 
-    // Getters and Setters
-    public Long getId() {
-        return id;
-    }
+    private Long gradeId;     // ID de grado al que pertenece
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    private Long teacherId;   // ID del profesor asignado
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSchedule() {
-        return schedule;
-    }
-
-    public void setSchedule(String schedule) {
-        this.schedule = schedule;
-    }
+    private String schedule;  // formato simple "Mon-Wed 08:00-09:30"
 }

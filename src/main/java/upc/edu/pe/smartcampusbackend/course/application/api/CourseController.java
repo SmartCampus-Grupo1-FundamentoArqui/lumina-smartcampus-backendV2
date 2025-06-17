@@ -1,47 +1,41 @@
 package upc.edu.pe.smartcampusbackend.course.application.api;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import upc.edu.pe.smartcampusbackend.course.domain.entities.Course;
-import upc.edu.pe.smartcampusbackend.course.domain.entities.Grade;
 import upc.edu.pe.smartcampusbackend.course.application.services.CourseService;
+import upc.edu.pe.smartcampusbackend.course.domain.dto.AssignTeacherRequest;
+import upc.edu.pe.smartcampusbackend.course.domain.dto.CourseRequest;
+import upc.edu.pe.smartcampusbackend.course.domain.entities.Course;
+
 import java.util.List;
 
 
 @RestController
-@RequestMapping("/api/courses")
+@RequestMapping("/courses")
+@RequiredArgsConstructor
 public class CourseController {
 
-    @Autowired
-    private CourseService courseService;
+    private final CourseService courseService;
 
-    // Endpoint para crear un nuevo grado
-    @PostMapping("/grades")
-    public Grade createGrade(@RequestBody Grade grade) {
-        return courseService.createGrade(grade);
-    }
-
-    // Endpoint para crear un nuevo curso
     @PostMapping
-    public Course createCourse(@RequestBody Course course) {
-        return courseService.createCourse(course);
+    public ResponseEntity<Course> create(@RequestBody CourseRequest request) {
+        return ResponseEntity.ok(courseService.createCourse(request));
     }
 
-    // Endpoint para obtener todos los grados
-    @GetMapping("/grades")
-    public List<Grade> getAllGrades() {
-        return courseService.getAllGrades();
-    }
-
-    // Endpoint para obtener todos los cursos
     @GetMapping
-    public List<Course> getAllCourses() {
-        return courseService.getAllCourses();
+    public ResponseEntity<List<Course>> getAll() {
+        return ResponseEntity.ok(courseService.getAllCourses());
     }
 
-    // Endpoint para asignar un curso a un grado (puedes modificar según tu lógica de negocio)
-    @PostMapping("/assign")
-    public Course assignCourseToGrade(@RequestParam Long gradeId, @RequestParam Long courseId) {
-        return courseService.assignCourseToGrade(gradeId, courseId);
+    @GetMapping("/grade/{gradeId}")
+    public ResponseEntity<List<Course>> getByGrade(@PathVariable Long gradeId) {
+        return ResponseEntity.ok(courseService.getCoursesByGrade(gradeId));
+    }
+
+    @PutMapping("/{id}/assign-teacher")
+    public ResponseEntity<Course> assignTeacher(@PathVariable Long id,
+                                                @RequestBody AssignTeacherRequest request) {
+        return ResponseEntity.ok(courseService.assignTeacher(id, request));
     }
 }
