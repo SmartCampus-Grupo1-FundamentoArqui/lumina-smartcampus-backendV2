@@ -1,13 +1,13 @@
-package upc.edu.pe.smartcampusbackend;
+package upc.edu.pe.smartcampusbackend.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SmartCampusbackendApplication {
+public class SmartCampusGatewayApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SmartCampusbackendApplication.class, args);
+        SpringApplication.run(SmartCampusGatewayApplication.class, args);
     }
 
 }

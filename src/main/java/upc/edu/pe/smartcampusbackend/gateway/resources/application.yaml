@@ -1,4 +1,6 @@
 # Application configuration for Spring Cloud Gateway with JWT authentication
+server:
+  port: 8080
 
 spring:
   cloud:
@@ -26,3 +28,7 @@ spring:
           uri: http://localhost:8085
           predicates:
             - Path=/schedule/**
+
+
+  main:
+    web-application-type=reactive:
