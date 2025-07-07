@@ -1,4 +1,4 @@
-package upc.edu.pe.smartcampusbackend.grade.domain.dto;
+package upc.edu.pe.smartcampusclassroom.grade.domain.dto;
 
 import lombok.Data;
 
