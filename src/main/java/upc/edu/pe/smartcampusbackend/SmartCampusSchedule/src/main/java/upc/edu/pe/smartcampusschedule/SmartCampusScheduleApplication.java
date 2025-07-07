@@ -1,4 +1,4 @@
-package upc.edu.pe.smartcampusbackend.schedule;
+package upc.edu.pe.smartcampusschedule;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

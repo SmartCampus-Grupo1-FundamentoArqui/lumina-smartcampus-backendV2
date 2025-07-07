@@ -1,13 +1,13 @@
-package upc.edu.pe.smartcampusbackend.grade;
+package upc.edu.pe.smartcampusgradebook;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SmartCampusGradeApplication {
+public class SmartCampusGradeBookApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SmartCampusGradeApplication.class, args);
+        SpringApplication.run(SmartCampusGradeBookApplication.class, args);
     }
 
 }
