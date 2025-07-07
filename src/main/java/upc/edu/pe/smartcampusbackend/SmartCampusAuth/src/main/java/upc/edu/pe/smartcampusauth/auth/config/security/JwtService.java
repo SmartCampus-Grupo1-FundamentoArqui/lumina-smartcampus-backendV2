@@ -1,12 +1,13 @@
-package upc.edu.pe.smartcampusbackend.auth.config.security;
+package upc.edu.pe.smartcampusauth.auth.config.security;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.Jwts;
 import org.springframework.stereotype.Service;
-import upc.edu.pe.smartcampusbackend.auth.domain.entities.User;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import upc.edu.pe.smartcampusauth.auth.domain.entities.User;
 
+import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.util.Date;
 
@@ -34,7 +35,7 @@ public class JwtService {
     }
 
     private Key getSignInKey() {
-        byte[] keyBytes = Decoders.BASE64.decode(SECRET_KEY);
+        byte[] keyBytes = SECRET_KEY.getBytes(StandardCharsets.UTF_8);
         return Keys.hmacShaKeyFor(keyBytes);
     }
 }
