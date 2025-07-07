@@ -1,4 +1,4 @@
-package upc.edu.pe.smartcampusbackend.schedule.domain.entities;
+package upc.edu.pe.smartcampusschedule.schedule.domain.entities;
 
 import jakarta.persistence.*;
 import lombok.*;

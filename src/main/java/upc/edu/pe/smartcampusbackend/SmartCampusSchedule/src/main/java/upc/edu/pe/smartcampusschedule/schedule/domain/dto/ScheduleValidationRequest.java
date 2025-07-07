@@ -1,4 +1,4 @@
-package upc.edu.pe.smartcampusbackend.schedule.domain.dto;
+package upc.edu.pe.smartcampusschedule.schedule.domain.dto;
 
 import lombok.Data;
 

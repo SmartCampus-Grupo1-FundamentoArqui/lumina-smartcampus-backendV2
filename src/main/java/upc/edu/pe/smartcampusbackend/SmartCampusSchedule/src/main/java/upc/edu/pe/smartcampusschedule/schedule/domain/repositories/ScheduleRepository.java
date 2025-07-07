@@ -1,7 +1,7 @@
-package upc.edu.pe.smartcampusbackend.schedule.domain.repositories;
+package upc.edu.pe.smartcampusschedule.schedule.domain.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import upc.edu.pe.smartcampusbackend.schedule.domain.entities.Schedule;
+import upc.edu.pe.smartcampusschedule.schedule.domain.entities.Schedule;
 
 import java.util.List;
 

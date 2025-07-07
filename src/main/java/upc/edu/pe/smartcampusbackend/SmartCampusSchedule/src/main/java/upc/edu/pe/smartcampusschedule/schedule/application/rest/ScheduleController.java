@@ -1,11 +1,12 @@
-package upc.edu.pe.smartcampusbackend.schedule.application.rest;
+package upc.edu.pe.smartcampusschedule.schedule.application.rest;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import upc.edu.pe.smartcampusbackend.schedule.application.services.ScheduleService;
-import upc.edu.pe.smartcampusbackend.schedule.domain.dto.ScheduleValidationRequest;
-import upc.edu.pe.smartcampusbackend.schedule.domain.entities.Schedule;
+import upc.edu.pe.smartcampusschedule.schedule.application.services.ScheduleService;
+import upc.edu.pe.smartcampusschedule.schedule.domain.dto.ScheduleValidationRequest;
+import upc.edu.pe.smartcampusschedule.schedule.domain.entities.Schedule;
+
 
 import java.util.List;
 
