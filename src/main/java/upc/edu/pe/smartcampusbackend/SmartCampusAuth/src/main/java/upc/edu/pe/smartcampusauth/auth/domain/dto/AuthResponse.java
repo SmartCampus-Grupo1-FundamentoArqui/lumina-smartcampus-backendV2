@@ -1,4 +1,4 @@
-package upc.edu.pe.smartcampusbackend.auth.domain.dto;
+package upc.edu.pe.smartcampusauth.auth.domain.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

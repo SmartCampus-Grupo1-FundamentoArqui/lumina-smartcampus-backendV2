@@ -1,13 +1,14 @@
-package upc.edu.pe.smartcampusbackend.auth.application.rest;
+package upc.edu.pe.smartcampusauth.auth.application.rest;
 
 import org.springframework.web.bind.annotation.*;
-import upc.edu.pe.smartcampusbackend.auth.application.services.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import upc.edu.pe.smartcampusbackend.auth.domain.dto.AuthRequest;
-import upc.edu.pe.smartcampusbackend.auth.domain.dto.AuthResponse;
-import upc.edu.pe.smartcampusbackend.auth.domain.dto.RegisterRequest;
-import upc.edu.pe.smartcampusbackend.auth.domain.repositories.UserRepository;
+import upc.edu.pe.smartcampusauth.auth.application.services.AuthService;
+import upc.edu.pe.smartcampusauth.auth.domain.dto.AuthRequest;
+import upc.edu.pe.smartcampusauth.auth.domain.dto.AuthResponse;
+import upc.edu.pe.smartcampusauth.auth.domain.dto.RegisterRequest;
+import upc.edu.pe.smartcampusauth.auth.domain.repositories.UserRepository;
+
 
 @RestController
 @RequestMapping("/auth")
@@ -33,5 +34,10 @@ public class AuthController {
         String email = header.replace("Bearer ", "");
         var user = userRepository.findByEmail(email).orElse(null);
         return ResponseEntity.ok(user);
+    }
+
+    @PostMapping("/login-teacher")
+    public ResponseEntity<AuthResponse> loginTeacher(@RequestBody AuthRequest request) {
+        return ResponseEntity.ok(authService.authenticateTeacher(request));
     }
 }
