@@ -1,4 +1,4 @@
-package upc.edu.pe.smartcampusbackend.teacher.domain.entities;
+package upc.edu.pe.smartcampususer.teacher.domain.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -16,10 +16,16 @@ public class Teacher {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String fullName;
+    private String firstName;
+
+    private String lastNameFather;
+
+    private String lastNameMother;
 
     @Column(unique = true)
     private String email;
 
     private String phone;
+
+    private String password; // Hash bcrypt
 }

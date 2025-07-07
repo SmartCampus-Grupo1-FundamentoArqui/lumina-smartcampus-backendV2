@@ -1,4 +1,4 @@
-package upc.edu.pe.smartcampusbackend.auth.domain.entities;
+package upc.edu.pe.smartcampusauth.auth.domain.entities;
 
 import jakarta.persistence.*;
 import lombok.*;

@@ -1,9 +1,9 @@
-package upc.edu.pe.smartcampusbackend.auth.application.services;
+package upc.edu.pe.smartcampusauth.auth.application.services;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.stereotype.Service;
-import upc.edu.pe.smartcampusbackend.auth.domain.repositories.UserRepository;
+import upc.edu.pe.smartcampusauth.auth.domain.repositories.UserRepository;
 
 import java.util.ArrayList;
 
